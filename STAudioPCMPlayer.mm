@@ -83,9 +83,9 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 
 - (void) dealloc {
 
+    [self freeAudioBuffers];
     self.audioQueueBuffers = NULL;
 
-    [self freeAudioBuffers];
 }
 
 
