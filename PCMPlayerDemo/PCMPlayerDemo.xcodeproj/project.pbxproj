@@ -1,0 +1,542 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		814BCB4F1CAB62C30053B77B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 814BCB4E1CAB62C30053B77B /* main.m */; };
+		814BCB521CAB62C30053B77B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 814BCB511CAB62C30053B77B /* AppDelegate.m */; };
+		814BCB551CAB62C30053B77B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814BCB541CAB62C30053B77B /* ViewController.m */; };
+		814BCB581CAB62C30053B77B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814BCB561CAB62C30053B77B /* Main.storyboard */; };
+		814BCB5A1CAB62C30053B77B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814BCB591CAB62C30053B77B /* Assets.xcassets */; };
+		814BCB5D1CAB62C30053B77B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814BCB5B1CAB62C30053B77B /* LaunchScreen.storyboard */; };
+		814BCB681CAB62C30053B77B /* PCMPlayerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 814BCB671CAB62C30053B77B /* PCMPlayerDemoTests.m */; };
+		814BCB731CAB62C30053B77B /* PCMPlayerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 814BCB721CAB62C30053B77B /* PCMPlayerDemoUITests.m */; };
+		814BCB821CAB63200053B77B /* STAudioPCMPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 814BCB811CAB63200053B77B /* STAudioPCMPlayer.mm */; };
+		814BCB841CAB63580053B77B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814BCB831CAB63580053B77B /* AudioToolbox.framework */; };
+		814BCB861CAB635E0053B77B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814BCB851CAB635E0053B77B /* AVFoundation.framework */; };
+		814BCB881CAB65CD0053B77B /* music_ios.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 814BCB871CAB65CD0053B77B /* music_ios.pcm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		814BCB641CAB62C30053B77B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 814BCB421CAB62C30053B77B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 814BCB491CAB62C30053B77B;
+			remoteInfo = PCMPlayerDemo;
+		};
+		814BCB6F1CAB62C30053B77B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 814BCB421CAB62C30053B77B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 814BCB491CAB62C30053B77B;
+			remoteInfo = PCMPlayerDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		814BCB4A1CAB62C30053B77B /* PCMPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCMPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		814BCB4E1CAB62C30053B77B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		814BCB501CAB62C30053B77B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		814BCB511CAB62C30053B77B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		814BCB531CAB62C30053B77B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		814BCB541CAB62C30053B77B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		814BCB571CAB62C30053B77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		814BCB591CAB62C30053B77B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		814BCB5C1CAB62C30053B77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		814BCB5E1CAB62C30053B77B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		814BCB631CAB62C30053B77B /* PCMPlayerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCMPlayerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		814BCB671CAB62C30053B77B /* PCMPlayerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCMPlayerDemoTests.m; sourceTree = "<group>"; };
+		814BCB691CAB62C30053B77B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		814BCB6E1CAB62C30053B77B /* PCMPlayerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCMPlayerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		814BCB721CAB62C30053B77B /* PCMPlayerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCMPlayerDemoUITests.m; sourceTree = "<group>"; };
+		814BCB741CAB62C30053B77B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		814BCB801CAB63200053B77B /* STAudioPCMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAudioPCMPlayer.h; sourceTree = "<group>"; };
+		814BCB811CAB63200053B77B /* STAudioPCMPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = STAudioPCMPlayer.mm; sourceTree = "<group>"; };
+		814BCB831CAB63580053B77B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		814BCB851CAB635E0053B77B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		814BCB871CAB65CD0053B77B /* music_ios.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = music_ios.pcm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		814BCB471CAB62C30053B77B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				814BCB861CAB635E0053B77B /* AVFoundation.framework in Frameworks */,
+				814BCB841CAB63580053B77B /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		814BCB601CAB62C30053B77B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		814BCB6B1CAB62C30053B77B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		814BCB411CAB62C30053B77B = {
+			isa = PBXGroup;
+			children = (
+				814BCB851CAB635E0053B77B /* AVFoundation.framework */,
+				814BCB831CAB63580053B77B /* AudioToolbox.framework */,
+				814BCB4C1CAB62C30053B77B /* PCMPlayerDemo */,
+				814BCB661CAB62C30053B77B /* PCMPlayerDemoTests */,
+				814BCB711CAB62C30053B77B /* PCMPlayerDemoUITests */,
+				814BCB4B1CAB62C30053B77B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		814BCB4B1CAB62C30053B77B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				814BCB4A1CAB62C30053B77B /* PCMPlayerDemo.app */,
+				814BCB631CAB62C30053B77B /* PCMPlayerDemoTests.xctest */,
+				814BCB6E1CAB62C30053B77B /* PCMPlayerDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		814BCB4C1CAB62C30053B77B /* PCMPlayerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				814BCB501CAB62C30053B77B /* AppDelegate.h */,
+				814BCB511CAB62C30053B77B /* AppDelegate.m */,
+				814BCB531CAB62C30053B77B /* ViewController.h */,
+				814BCB541CAB62C30053B77B /* ViewController.m */,
+				814BCB801CAB63200053B77B /* STAudioPCMPlayer.h */,
+				814BCB811CAB63200053B77B /* STAudioPCMPlayer.mm */,
+				814BCB561CAB62C30053B77B /* Main.storyboard */,
+				814BCB591CAB62C30053B77B /* Assets.xcassets */,
+				814BCB5B1CAB62C30053B77B /* LaunchScreen.storyboard */,
+				814BCB5E1CAB62C30053B77B /* Info.plist */,
+				814BCB4D1CAB62C30053B77B /* Supporting Files */,
+			);
+			path = PCMPlayerDemo;
+			sourceTree = "<group>";
+		};
+		814BCB4D1CAB62C30053B77B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				814BCB871CAB65CD0053B77B /* music_ios.pcm */,
+				814BCB4E1CAB62C30053B77B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		814BCB661CAB62C30053B77B /* PCMPlayerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				814BCB671CAB62C30053B77B /* PCMPlayerDemoTests.m */,
+				814BCB691CAB62C30053B77B /* Info.plist */,
+			);
+			path = PCMPlayerDemoTests;
+			sourceTree = "<group>";
+		};
+		814BCB711CAB62C30053B77B /* PCMPlayerDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				814BCB721CAB62C30053B77B /* PCMPlayerDemoUITests.m */,
+				814BCB741CAB62C30053B77B /* Info.plist */,
+			);
+			path = PCMPlayerDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		814BCB491CAB62C30053B77B /* PCMPlayerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 814BCB771CAB62C30053B77B /* Build configuration list for PBXNativeTarget "PCMPlayerDemo" */;
+			buildPhases = (
+				814BCB461CAB62C30053B77B /* Sources */,
+				814BCB471CAB62C30053B77B /* Frameworks */,
+				814BCB481CAB62C30053B77B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PCMPlayerDemo;
+			productName = PCMPlayerDemo;
+			productReference = 814BCB4A1CAB62C30053B77B /* PCMPlayerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		814BCB621CAB62C30053B77B /* PCMPlayerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 814BCB7A1CAB62C30053B77B /* Build configuration list for PBXNativeTarget "PCMPlayerDemoTests" */;
+			buildPhases = (
+				814BCB5F1CAB62C30053B77B /* Sources */,
+				814BCB601CAB62C30053B77B /* Frameworks */,
+				814BCB611CAB62C30053B77B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				814BCB651CAB62C30053B77B /* PBXTargetDependency */,
+			);
+			name = PCMPlayerDemoTests;
+			productName = PCMPlayerDemoTests;
+			productReference = 814BCB631CAB62C30053B77B /* PCMPlayerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		814BCB6D1CAB62C30053B77B /* PCMPlayerDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 814BCB7D1CAB62C30053B77B /* Build configuration list for PBXNativeTarget "PCMPlayerDemoUITests" */;
+			buildPhases = (
+				814BCB6A1CAB62C30053B77B /* Sources */,
+				814BCB6B1CAB62C30053B77B /* Frameworks */,
+				814BCB6C1CAB62C30053B77B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				814BCB701CAB62C30053B77B /* PBXTargetDependency */,
+			);
+			name = PCMPlayerDemoUITests;
+			productName = PCMPlayerDemoUITests;
+			productReference = 814BCB6E1CAB62C30053B77B /* PCMPlayerDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		814BCB421CAB62C30053B77B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "赵鑫磊";
+				TargetAttributes = {
+					814BCB491CAB62C30053B77B = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = G6ZA2W5WTU;
+					};
+					814BCB621CAB62C30053B77B = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 814BCB491CAB62C30053B77B;
+					};
+					814BCB6D1CAB62C30053B77B = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 814BCB491CAB62C30053B77B;
+					};
+				};
+			};
+			buildConfigurationList = 814BCB451CAB62C30053B77B /* Build configuration list for PBXProject "PCMPlayerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 814BCB411CAB62C30053B77B;
+			productRefGroup = 814BCB4B1CAB62C30053B77B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				814BCB491CAB62C30053B77B /* PCMPlayerDemo */,
+				814BCB621CAB62C30053B77B /* PCMPlayerDemoTests */,
+				814BCB6D1CAB62C30053B77B /* PCMPlayerDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		814BCB481CAB62C30053B77B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				814BCB5D1CAB62C30053B77B /* LaunchScreen.storyboard in Resources */,
+				814BCB5A1CAB62C30053B77B /* Assets.xcassets in Resources */,
+				814BCB881CAB65CD0053B77B /* music_ios.pcm in Resources */,
+				814BCB581CAB62C30053B77B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		814BCB611CAB62C30053B77B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		814BCB6C1CAB62C30053B77B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		814BCB461CAB62C30053B77B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				814BCB551CAB62C30053B77B /* ViewController.m in Sources */,
+				814BCB821CAB63200053B77B /* STAudioPCMPlayer.mm in Sources */,
+				814BCB521CAB62C30053B77B /* AppDelegate.m in Sources */,
+				814BCB4F1CAB62C30053B77B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		814BCB5F1CAB62C30053B77B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				814BCB681CAB62C30053B77B /* PCMPlayerDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		814BCB6A1CAB62C30053B77B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				814BCB731CAB62C30053B77B /* PCMPlayerDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		814BCB651CAB62C30053B77B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 814BCB491CAB62C30053B77B /* PCMPlayerDemo */;
+			targetProxy = 814BCB641CAB62C30053B77B /* PBXContainerItemProxy */;
+		};
+		814BCB701CAB62C30053B77B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 814BCB491CAB62C30053B77B /* PCMPlayerDemo */;
+			targetProxy = 814BCB6F1CAB62C30053B77B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		814BCB561CAB62C30053B77B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				814BCB571CAB62C30053B77B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		814BCB5B1CAB62C30053B77B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				814BCB5C1CAB62C30053B77B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		814BCB751CAB62C30053B77B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		814BCB761CAB62C30053B77B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		814BCB781CAB62C30053B77B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = PCMPlayerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zzz.PCMPlayerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		814BCB791CAB62C30053B77B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = PCMPlayerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zzz.PCMPlayerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		814BCB7B1CAB62C30053B77B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PCMPlayerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zzz.PCMPlayerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PCMPlayerDemo.app/PCMPlayerDemo";
+			};
+			name = Debug;
+		};
+		814BCB7C1CAB62C30053B77B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PCMPlayerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zzz.PCMPlayerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PCMPlayerDemo.app/PCMPlayerDemo";
+			};
+			name = Release;
+		};
+		814BCB7E1CAB62C30053B77B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PCMPlayerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zzz.PCMPlayerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PCMPlayerDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		814BCB7F1CAB62C30053B77B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PCMPlayerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zzz.PCMPlayerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PCMPlayerDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		814BCB451CAB62C30053B77B /* Build configuration list for PBXProject "PCMPlayerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				814BCB751CAB62C30053B77B /* Debug */,
+				814BCB761CAB62C30053B77B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		814BCB771CAB62C30053B77B /* Build configuration list for PBXNativeTarget "PCMPlayerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				814BCB781CAB62C30053B77B /* Debug */,
+				814BCB791CAB62C30053B77B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		814BCB7A1CAB62C30053B77B /* Build configuration list for PBXNativeTarget "PCMPlayerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				814BCB7B1CAB62C30053B77B /* Debug */,
+				814BCB7C1CAB62C30053B77B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		814BCB7D1CAB62C30053B77B /* Build configuration list for PBXNativeTarget "PCMPlayerDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				814BCB7E1CAB62C30053B77B /* Debug */,
+				814BCB7F1CAB62C30053B77B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 814BCB421CAB62C30053B77B /* Project object */;
+}

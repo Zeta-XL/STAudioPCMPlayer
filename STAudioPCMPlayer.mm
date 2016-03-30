@@ -110,6 +110,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
     if (!self.isAudioSetup) {
         NSError *error = nil;
         [[AVAudioSession sharedInstance]setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
+        [[AVAudioSession sharedInstance] setPreferredSampleRate:self.sampleRate error:&error];
         [[AVAudioSession sharedInstance] setActive:YES error:&error];
         if (error) {
             NSLog(@"AVAudioSession Error: %@", error.localizedDescription);

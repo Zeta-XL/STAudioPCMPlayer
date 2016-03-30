@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzQ-zP-Yv6">
+                                <rect key="frame" x="260" y="164" width="80" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="RHy-mP-P0u"/>
+                                    <constraint firstAttribute="height" constant="39" id="jWk-yK-sS4"/>
+                                </constraints>
+                                <state key="normal" title="播放"/>
+                                <state key="selected" title="暂停"/>
+                                <connections>
+                                    <action selector="onPlayerPauseButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEl-ST-2xG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQc-yT-mZe">
+                                <rect key="frame" x="364" y="164" width="80" height="39"/>
+                                <state key="normal" title="重置"/>
+                                <connections>
+                                    <action selector="onResetButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kch-mY-t5e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhC-2b-Ncg">
+                                <rect key="frame" x="150" y="164" width="80" height="39"/>
+                                <state key="normal" title="加载数据"/>
+                                <connections>
+                                    <action selector="onLoadDataButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="guF-kT-2EM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qzQ-zP-Yv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="144" id="3zs-q4-4jT"/>
+                            <constraint firstItem="cQc-yT-mZe" firstAttribute="leading" secondItem="qzQ-zP-Yv6" secondAttribute="trailing" constant="24" id="6J2-gr-w16"/>
+                            <constraint firstItem="cQc-yT-mZe" firstAttribute="height" secondItem="qzQ-zP-Yv6" secondAttribute="height" id="GiZ-OE-Jm7"/>
+                            <constraint firstItem="hhC-2b-Ncg" firstAttribute="width" secondItem="qzQ-zP-Yv6" secondAttribute="width" id="M7S-om-RfH"/>
+                            <constraint firstItem="qzQ-zP-Yv6" firstAttribute="leading" secondItem="hhC-2b-Ncg" secondAttribute="trailing" constant="30" id="Ne7-8r-N4q"/>
+                            <constraint firstItem="cQc-yT-mZe" firstAttribute="centerY" secondItem="qzQ-zP-Yv6" secondAttribute="centerY" id="keR-h1-C7N"/>
+                            <constraint firstItem="qzQ-zP-Yv6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qov-WM-NLd"/>
+                            <constraint firstItem="cQc-yT-mZe" firstAttribute="width" secondItem="qzQ-zP-Yv6" secondAttribute="width" id="sQl-R9-FI5"/>
+                            <constraint firstItem="hhC-2b-Ncg" firstAttribute="centerY" secondItem="qzQ-zP-Yv6" secondAttribute="centerY" id="tag-HN-h3J"/>
+                            <constraint firstItem="hhC-2b-Ncg" firstAttribute="height" secondItem="qzQ-zP-Yv6" secondAttribute="height" id="uv1-B8-KaU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playPauseButton" destination="qzQ-zP-Yv6" id="Exv-xQ-q76"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="418"/>
+        </scene>
+    </scenes>
+</document>
