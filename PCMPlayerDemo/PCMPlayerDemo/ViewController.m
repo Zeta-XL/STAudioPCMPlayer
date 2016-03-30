@@ -48,11 +48,14 @@
     self.pcmFile = fopen(filePath.UTF8String, "r");
     
     self.player = [[STAudioPCMPlayer alloc] init];
+    
     self.player.dataSource = self;
     
     [self.player prepareToPlay];
     self.isDataReady = YES;
     self.canRest =YES;
+    
+
 }
 
 - (IBAction)onPlayerPauseButtonPress:(UIButton *)sender {

@@ -11,9 +11,7 @@
 
 NSString * const STAudioPCMPlayerStateDidChangeNotification = @"STAudioPCMPlayerStateDidChangeNotification";
 
-@interface STAudioPCMPlayer () {
-    
-}
+@interface STAudioPCMPlayer ()
 
 void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBufferRef outQB);
 
@@ -25,7 +23,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 
 @property (nonatomic, assign) BOOL isAudioSetup;
 
-
+@property (nonatomic, assign) NSInteger numOfChannel;
 
 @end
 
@@ -63,13 +61,13 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 }
 
 
-+ (AudioStreamBasicDescription)defaultAudioDescriptionWithSampleRate:(Float64)sampleRate {
++ (AudioStreamBasicDescription)defaultAudioDescriptionWithSampleRate:(Float64)sampleRate numOfChannel:(NSInteger)numOfChannel {
     AudioStreamBasicDescription asbd;
     memset(&asbd, 0, sizeof(asbd));
     asbd.mSampleRate = sampleRate;
     asbd.mFormatID = kAudioFormatLinearPCM;
     asbd.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;
-    asbd.mChannelsPerFrame = 2;///双声道
+    asbd.mChannelsPerFrame = (UInt32)numOfChannel;///双声道
     asbd.mFramesPerPacket = 1;//每一个packet一侦数据
     asbd.mBitsPerChannel = 16;//每个采样点16bit量化
     asbd.mBytesPerFrame = (asbd.mBitsPerChannel/8) * asbd.mChannelsPerFrame;
@@ -90,14 +88,20 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 
 
 #define kReadInBufferSize (1024*4)
-- (instancetype)initWithSampleRate:(NSInteger)sampleRate {
+- (instancetype)initWithSampleRate:(NSInteger)sampleRate numerOfChannel:(NSInteger)numOfChannel {
     self = [super init];
     if (self) {
         _synlock = [[NSLock alloc] init];
         _sampleRate = sampleRate;
-        _audioDescription = [STAudioPCMPlayer defaultAudioDescriptionWithSampleRate:sampleRate];
+        _numOfChannel = numOfChannel;
+        _audioDescription = [STAudioPCMPlayer defaultAudioDescriptionWithSampleRate:sampleRate numOfChannel:numOfChannel];
     }
     return self;
+}
+
+
+- (instancetype)initWithSampleRate:(NSInteger)sampleRate {
+    return [self initWithSampleRate:sampleRate numerOfChannel:2];
 }
 
 - (instancetype)init {
@@ -109,7 +113,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 - (void)setupAudioOutput {
     if (!self.isAudioSetup) {
         NSError *error = nil;
-        [[AVAudioSession sharedInstance]setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
         [[AVAudioSession sharedInstance] setPreferredSampleRate:self.sampleRate error:&error];
         [[AVAudioSession sharedInstance] setActive:YES error:&error];
         if (error) {
@@ -178,6 +182,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 - (void)audioNewOutput {
     /// 创建一个新的从audioqueue到硬件层的通道
     //  AudioQueueNewOutput(&audioDescription, AudioPlayerAQInputCallback, self, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &audioQueue);///使用当前线程播
+
     AudioQueueNewOutput(&_audioDescription, AudioPlayerAQInputCallback, (__bridge void * _Nullable)(self), nil, nil, 0, &_audioQueue);
 }
 
@@ -197,8 +202,6 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
             Byte *audioData = (Byte *)outQB->mAudioData;
             memcpy(audioData, readInByte, readLength);
             AudioQueueEnqueueBuffer(outQ, outQB, 0, NULL);
-            
-            self.playerState = STAudioPCMPlayerStatePlaying;
         } else {
             self.playerState = STAudioPCMPlayerStateError;
         }

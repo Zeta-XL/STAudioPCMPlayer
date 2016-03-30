@@ -41,7 +41,10 @@ typedef NS_ENUM(NSInteger, STAudioPCMPlayerState){
 @property (nonatomic, assign, readonly) STAudioPCMPlayerState currentState;
 
 
+- (instancetype)initWithSampleRate:(NSInteger)sampleRate numerOfChannel:(NSInteger)numOfChannel;
+
 - (instancetype)initWithSampleRate:(NSInteger)sampleRate;
+
 /*
  * play 之前先调用prepareToPlay
  */
