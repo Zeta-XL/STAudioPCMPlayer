@@ -85,7 +85,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 
     [self freeAudioBuffers];
     self.audioQueueBuffers = NULL;
-
+    NSLog(@"PCMPlayer Dealloc");
 }
 
 

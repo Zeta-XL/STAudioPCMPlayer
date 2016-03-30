@@ -15,10 +15,10 @@
 		814BCB5D1CAB62C30053B77B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814BCB5B1CAB62C30053B77B /* LaunchScreen.storyboard */; };
 		814BCB681CAB62C30053B77B /* PCMPlayerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 814BCB671CAB62C30053B77B /* PCMPlayerDemoTests.m */; };
 		814BCB731CAB62C30053B77B /* PCMPlayerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 814BCB721CAB62C30053B77B /* PCMPlayerDemoUITests.m */; };
-		814BCB821CAB63200053B77B /* STAudioPCMPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 814BCB811CAB63200053B77B /* STAudioPCMPlayer.mm */; };
 		814BCB841CAB63580053B77B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814BCB831CAB63580053B77B /* AudioToolbox.framework */; };
 		814BCB861CAB635E0053B77B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 814BCB851CAB635E0053B77B /* AVFoundation.framework */; };
 		814BCB881CAB65CD0053B77B /* music_ios.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 814BCB871CAB65CD0053B77B /* music_ios.pcm */; };
+		814BCB8E1CAB721D0053B77B /* STAudioPCMPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 814BCB8D1CAB721D0053B77B /* STAudioPCMPlayer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,11 +55,11 @@
 		814BCB6E1CAB62C30053B77B /* PCMPlayerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCMPlayerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		814BCB721CAB62C30053B77B /* PCMPlayerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCMPlayerDemoUITests.m; sourceTree = "<group>"; };
 		814BCB741CAB62C30053B77B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		814BCB801CAB63200053B77B /* STAudioPCMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAudioPCMPlayer.h; sourceTree = "<group>"; };
-		814BCB811CAB63200053B77B /* STAudioPCMPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = STAudioPCMPlayer.mm; sourceTree = "<group>"; };
 		814BCB831CAB63580053B77B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		814BCB851CAB635E0053B77B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		814BCB871CAB65CD0053B77B /* music_ios.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = music_ios.pcm; sourceTree = "<group>"; };
+		814BCB8C1CAB721D0053B77B /* STAudioPCMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STAudioPCMPlayer.h; path = ../../STAudioPCMPlayer.h; sourceTree = "<group>"; };
+		814BCB8D1CAB721D0053B77B /* STAudioPCMPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = STAudioPCMPlayer.mm; path = ../../STAudioPCMPlayer.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +114,12 @@
 		814BCB4C1CAB62C30053B77B /* PCMPlayerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				814BCB8C1CAB721D0053B77B /* STAudioPCMPlayer.h */,
+				814BCB8D1CAB721D0053B77B /* STAudioPCMPlayer.mm */,
 				814BCB501CAB62C30053B77B /* AppDelegate.h */,
 				814BCB511CAB62C30053B77B /* AppDelegate.m */,
 				814BCB531CAB62C30053B77B /* ViewController.h */,
 				814BCB541CAB62C30053B77B /* ViewController.m */,
-				814BCB801CAB63200053B77B /* STAudioPCMPlayer.h */,
-				814BCB811CAB63200053B77B /* STAudioPCMPlayer.mm */,
 				814BCB561CAB62C30053B77B /* Main.storyboard */,
 				814BCB591CAB62C30053B77B /* Assets.xcassets */,
 				814BCB5B1CAB62C30053B77B /* LaunchScreen.storyboard */,
@@ -289,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				814BCB551CAB62C30053B77B /* ViewController.m in Sources */,
-				814BCB821CAB63200053B77B /* STAudioPCMPlayer.mm in Sources */,
+				814BCB8E1CAB721D0053B77B /* STAudioPCMPlayer.mm in Sources */,
 				814BCB521CAB62C30053B77B /* AppDelegate.m in Sources */,
 				814BCB4F1CAB62C30053B77B /* main.m in Sources */,
 			);
