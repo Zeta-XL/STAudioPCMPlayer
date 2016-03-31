@@ -87,7 +87,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 }
 
 
-#define kReadInBufferSize (1024*4)
+
 - (instancetype)initWithSampleRate:(NSInteger)sampleRate numerOfChannel:(NSInteger)numOfChannel {
     self = [super init];
     if (self) {
@@ -112,6 +112,8 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 #pragma mark --- Audio Play Contorl
 - (void)setupAudioOutput {
     if (!self.isAudioSetup) {
+        [self audioNewOutput];
+        [self allocAudioBuffers];
         NSError *error = nil;
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
         [[AVAudioSession sharedInstance] setPreferredSampleRate:self.sampleRate error:&error];
@@ -119,8 +121,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
         if (error) {
             NSLog(@"AVAudioSession Error: %@", error.localizedDescription);
         }
-        [self audioNewOutput];
-        [self allocAudioBuffers];
+        
         self.isAudioSetup = YES;
     }
 }
@@ -192,18 +193,27 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 - (void)readPCMAndPlay:(AudioQueueRef)outQ buffer:(AudioQueueBufferRef)outQB {
     [self.synlock lock];
     
-    if (_dataSource && [_dataSource respondsToSelector:@selector(audioPCMPlayer:hasBytesWithLength:)]) {
-        
-        UInt32 readLength = 0;
-        Byte *readInByte = [_dataSource audioPCMPlayer:self hasBytesWithLength:&readLength];
-        
-        if (readLength > 0 && !!readInByte) {
-            outQB->mAudioDataByteSize = readLength;
+    if (_dataSource ) {
+        if ([_dataSource respondsToSelector:@selector(audioPCMPlayer:hasBytesWithLength:)]) {
+            UInt32 readLength = 0;
+            Byte *readInByte = [_dataSource audioPCMPlayer:self hasBytesWithLength:&readLength];
+            
+            if (readLength > 0 && !!readInByte) {
+                outQB->mAudioDataByteSize = readLength;
+                Byte *audioData = (Byte *)outQB->mAudioData;
+                memcpy(audioData, readInByte, readLength);
+                AudioQueueEnqueueBuffer(outQ, outQB, 0, NULL);
+            } else {
+                self.playerState = STAudioPCMPlayerStateError;
+            }
+        } else if ([_dataSource respondsToSelector:@selector(audioPCMPlayer:shouldFillInBuffer:withBufferLength:)]) {
+            
+            Byte fillBuffer[kFillBufferSize];
+            [_dataSource audioPCMPlayer:self shouldFillInBuffer:fillBuffer withBufferLength:kFillBufferSize];
+            outQB->mAudioDataByteSize = kFillBufferSize;
             Byte *audioData = (Byte *)outQB->mAudioData;
-            memcpy(audioData, readInByte, readLength);
+            memcpy(audioData, fillBuffer, kFillBufferSize);
             AudioQueueEnqueueBuffer(outQ, outQB, 0, NULL);
-        } else {
-            self.playerState = STAudioPCMPlayerStateError;
         }
         
     } else {

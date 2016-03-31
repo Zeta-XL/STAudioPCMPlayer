@@ -10,8 +10,9 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
-#define kQueueBufferCount (4)
+#define kQueueBufferCount (6)
 #define kMinSizePerBuffer (1024*2)
+#define kFillBufferSize (960*2*2)
 
 FOUNDATION_EXPORT NSString * const STAudioPCMPlayerStateDidChangeNotification;
 
@@ -28,6 +29,7 @@ typedef NS_ENUM(NSInteger, STAudioPCMPlayerState){
 @optional
 - (Byte *)audioPCMPlayer:(STAudioPCMPlayer *)player hasBytesWithLength:(UInt32 *)byteLength;
 
+- (void)audioPCMPlayer:(STAudioPCMPlayer *)player shouldFillInBuffer:(Byte *)inBuffer withBufferLength:(UInt32)bufferLength;
 
 @end
 

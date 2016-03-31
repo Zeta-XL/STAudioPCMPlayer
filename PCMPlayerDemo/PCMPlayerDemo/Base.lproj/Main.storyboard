@@ -29,13 +29,6 @@
                                     <action selector="onPlayerPauseButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEl-ST-2xG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQc-yT-mZe">
-                                <rect key="frame" x="364" y="164" width="80" height="39"/>
-                                <state key="normal" title="重置"/>
-                                <connections>
-                                    <action selector="onResetButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kch-mY-t5e"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhC-2b-Ncg">
                                 <rect key="frame" x="150" y="164" width="80" height="39"/>
                                 <state key="normal" title="加载数据"/>
@@ -43,15 +36,22 @@
                                     <action selector="onLoadDataButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="guF-kT-2EM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQc-yT-mZe">
+                                <rect key="frame" x="360" y="164" width="80" height="39"/>
+                                <state key="normal" title="重置"/>
+                                <connections>
+                                    <action selector="onResetButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kch-mY-t5e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qzQ-zP-Yv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="144" id="3zs-q4-4jT"/>
-                            <constraint firstItem="cQc-yT-mZe" firstAttribute="leading" secondItem="qzQ-zP-Yv6" secondAttribute="trailing" constant="24" id="6J2-gr-w16"/>
+                            <constraint firstItem="cQc-yT-mZe" firstAttribute="leading" secondItem="qzQ-zP-Yv6" secondAttribute="trailing" constant="20" id="6J2-gr-w16"/>
                             <constraint firstItem="cQc-yT-mZe" firstAttribute="height" secondItem="qzQ-zP-Yv6" secondAttribute="height" id="GiZ-OE-Jm7"/>
                             <constraint firstItem="hhC-2b-Ncg" firstAttribute="width" secondItem="qzQ-zP-Yv6" secondAttribute="width" id="M7S-om-RfH"/>
                             <constraint firstItem="qzQ-zP-Yv6" firstAttribute="leading" secondItem="hhC-2b-Ncg" secondAttribute="trailing" constant="30" id="Ne7-8r-N4q"/>
                             <constraint firstItem="cQc-yT-mZe" firstAttribute="centerY" secondItem="qzQ-zP-Yv6" secondAttribute="centerY" id="keR-h1-C7N"/>
+                            <constraint firstItem="qzQ-zP-Yv6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="144" id="mZK-fr-nqj"/>
                             <constraint firstItem="qzQ-zP-Yv6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qov-WM-NLd"/>
                             <constraint firstItem="cQc-yT-mZe" firstAttribute="width" secondItem="qzQ-zP-Yv6" secondAttribute="width" id="sQl-R9-FI5"/>
                             <constraint firstItem="hhC-2b-Ncg" firstAttribute="centerY" secondItem="qzQ-zP-Yv6" secondAttribute="centerY" id="tag-HN-h3J"/>

@@ -22,6 +22,8 @@
 @property (assign, nonatomic) BOOL isDataReady;
 
 @property (assign, nonatomic) FILE *pcmFile;
+
+
 @end
 
 @implementation ViewController
@@ -29,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (IBAction)onLoadDataButtonPress:(UIButton *)sender {
@@ -94,11 +97,13 @@
         
         fseek(self.pcmFile, 0, SEEK_SET);
     }
+    
     fread(_readInBuffer, sizeof(Byte), kReadByteLength, self.pcmFile);
     
     *byteLength = kReadByteLength;
     
-    return _readInBuffer;
+    
+    return (Byte *)_readInBuffer;
     
 }
 
