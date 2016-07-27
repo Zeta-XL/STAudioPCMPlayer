@@ -7,6 +7,7 @@
 //
 
 #import "STAudioPCMPlayer.h"
+#import <UIKit/UIKit.h>
 #define kSampleRate 48000
 
 NSString * const STAudioPCMPlayerStateDidChangeNotification = @"STAudioPCMPlayerStateDidChangeNotification";
@@ -114,14 +115,17 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
     if (!self.isAudioSetup) {
         [self audioNewOutput];
         [self allocAudioBuffers];
-        NSError *error = nil;
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
-        [[AVAudioSession sharedInstance] setPreferredSampleRate:self.sampleRate error:&error];
-        [[AVAudioSession sharedInstance] setActive:YES error:&error];
-        if (error) {
-            NSLog(@"AVAudioSession Error: %@", error.localizedDescription);
+        if (self.configAudioSession) {
+            self.configAudioSession([AVAudioSession sharedInstance]);
+        } else {
+            NSError *error = nil;
+            [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
+            [[AVAudioSession sharedInstance] setPreferredSampleRate:self.sampleRate error:&error];
+            [[AVAudioSession sharedInstance] setActive:YES error:&error];
+            if (error) {
+                NSLog(@"AVAudioSession Error: %@", error.localizedDescription);
+            }
         }
-        
         self.isAudioSetup = YES;
     }
 }

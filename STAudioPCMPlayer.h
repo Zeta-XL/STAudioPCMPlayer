@@ -41,6 +41,7 @@ typedef NS_ENUM(NSInteger, STAudioPCMPlayerState){
 
 @property (nonatomic, weak) id <STAudioPCMPlayerDataSource> dataSource;
 @property (nonatomic, assign, readonly) STAudioPCMPlayerState currentState;
+@property (nonatomic, copy) void(^configAudioSession)(AVAudioSession *audioSession);
 
 
 - (instancetype)initWithSampleRate:(NSInteger)sampleRate numerOfChannel:(NSInteger)numOfChannel;
