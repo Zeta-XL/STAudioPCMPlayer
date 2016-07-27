@@ -224,6 +224,11 @@
 					814BCB491CAB62C30053B77B = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = G6ZA2W5WTU;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					814BCB621CAB62C30053B77B = {
 						CreatedOnToolsVersion = 7.2.1;

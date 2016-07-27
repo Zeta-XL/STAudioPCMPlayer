@@ -10,7 +10,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
-#define kQueueBufferCount (6)
+#define kQueueBufferCount (4)
 #define kMinSizePerBuffer (1024*2*2)
 #define kFillBufferSize (960*2*2)
 

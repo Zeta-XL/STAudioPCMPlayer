@@ -28,6 +28,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 
 @property (nonatomic, assign) NSInteger numOfChannel;
 
+@property (nonatomic, assign) BOOL bufferIsAlloc;
 @end
 
 @implementation STAudioPCMPlayer
@@ -175,15 +176,21 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
         int result =  AudioQueueAllocateBuffer(_audioQueue, kMinSizePerBuffer, &_audioQueueBuffers[i]); //创建buffer区，kMinSizePerBuffer为每一侦所需要的最小的大小，该大小应该比每次往buffer里写的最大的一次还大
         NSLog(@"AudioQueueAllocateBuffer i = %d,result = %d", i, result);
     }
+    self.bufferIsAlloc = YES;
 }
 
 // TODO: Free Audio Buffer
 - (void)freeAudioBuffers {
+    if (!self.bufferIsAlloc) {
+        return;
+    }
     for(int i=0; i<kQueueBufferCount; i++) {
         int result =  AudioQueueFreeBuffer(_audioQueue, _audioQueueBuffers[i]);
 
         NSLog(@"AudioQueueFreeBuffer i = %d,result = %d", i, result);
     }
+    AudioQueueDispose(_audioQueue, YES);
+    self.bufferIsAlloc = NO;
 }
 // TODO: Create Audio Output
 - (void)audioNewOutput {
@@ -191,6 +198,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
     //  AudioQueueNewOutput(&audioDescription, AudioPlayerAQInputCallback, self, CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &audioQueue);///使用当前线程播
 
     AudioQueueNewOutput(&_audioDescription, AudioPlayerAQInputCallback, (__bridge void * _Nullable)(self), nil, nil, 0, &_audioQueue);
+
 }
 
 
@@ -226,15 +234,15 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
         NSLog(@"DataSource is not SET");
     }
     
-//    NSLog(@"Current Thread: %@", [NSThread currentThread]);
+    NSLog(@"Current Thread: %@", [NSThread currentThread]);
+
     
-    
-    NSLog(@"Current Route: %@", [[AVAudioSession sharedInstance] currentRoute]);
+//    NSLog(@"Current Route: %@", [[AVAudioSession sharedInstance] currentRoute]);
 //    NSArray *outputPorts = [[AVAudioSession sharedInstance] currentRoute].outputs;
 //    for (AVAudioSessionPortDescription *port in outputPorts) {
 //        NSLog(@"port: %@ -- type %@ -- datasources: %@", port.portName, port.portType, port.dataSources);
 //    }
-    NSLog(@"Output Data Souce %@", [[AVAudioSession sharedInstance] outputDataSource]);
+//    NSLog(@"Output Data Souce %@", [[AVAudioSession sharedInstance] outputDataSource]);
     [self.synlock unlock];
 }
 
