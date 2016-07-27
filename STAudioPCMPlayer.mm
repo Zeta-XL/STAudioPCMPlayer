@@ -12,13 +12,15 @@
 
 NSString * const STAudioPCMPlayerStateDidChangeNotification = @"STAudioPCMPlayerStateDidChangeNotification";
 
-@interface STAudioPCMPlayer ()
+@interface STAudioPCMPlayer () {
+    AudioQueueBufferRef _audioQueueBuffers[kQueueBufferCount];
+}
 
 void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBufferRef outQB);
 
 @property (nonatomic, strong) NSLock *synlock; // 同步锁
 @property (nonatomic, assign) AudioQueueRef audioQueue;//音频播放队列
-@property (nonatomic, assign) AudioQueueBufferRef *audioQueueBuffers;
+//@property (nonatomic, assign) AudioQueueBufferRef *audioQueueBuffers;
 
 @property (nonatomic, assign) STAudioPCMPlayerState playerState;
 
@@ -29,25 +31,25 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 @end
 
 @implementation STAudioPCMPlayer
-@synthesize audioQueueBuffers = _audioQueueBuffers;
-
-#pragma mark --- Custom Setter/Getter
-- (AudioQueueBufferRef *)audioQueueBuffers {
-    if (!_audioQueueBuffers) {
-        _audioQueueBuffers = new AudioQueueBufferRef[kQueueBufferCount];
-    }
-    return _audioQueueBuffers;
-}
-
-
-- (void)setAudioQueueBuffers:(AudioQueueBufferRef *)audioQueueBuffers {
-    if (_audioQueueBuffers != audioQueueBuffers) {
-        if (_audioQueueBuffers) {
-            delete [] _audioQueueBuffers;
-        }
-        _audioQueueBuffers = audioQueueBuffers;
-    }
-}
+//@synthesize audioQueueBuffers = _audioQueueBuffers;
+//
+//#pragma mark --- Custom Setter/Getter
+//- (AudioQueueBufferRef *)audioQueueBuffers {
+//    if (!_audioQueueBuffers) {
+//        _audioQueueBuffers = new AudioQueueBufferRef[kQueueBufferCount];
+//    }
+//    return _audioQueueBuffers;
+//}
+//
+//
+//- (void)setAudioQueueBuffers:(AudioQueueBufferRef *)audioQueueBuffers {
+//    if (_audioQueueBuffers != audioQueueBuffers) {
+//        if (_audioQueueBuffers) {
+//            delete [] _audioQueueBuffers;
+//        }
+//        _audioQueueBuffers = audioQueueBuffers;
+//    }
+//}
 
 
 - (STAudioPCMPlayerState)currentState {
@@ -83,7 +85,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 - (void) dealloc {
 
     [self freeAudioBuffers];
-    self.audioQueueBuffers = NULL;
+//    self.audioQueueBuffers = NULL;
     NSLog(@"PCMPlayer Dealloc");
 }
 
@@ -136,7 +138,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
     }
     for(int i=0; i<kQueueBufferCount; i++)
     {
-        [self readPCMAndPlay:_audioQueue buffer:self.audioQueueBuffers[i]];
+        [self readPCMAndPlay:_audioQueue buffer:_audioQueueBuffers[i]];
     }
     self.playerState = STAudioPCMPlayerStatePrepare;
 }
@@ -170,7 +172,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 - (void)allocAudioBuffers {
     // 添加buffer区
     for(int i=0; i<kQueueBufferCount; i++) {
-        int result =  AudioQueueAllocateBuffer(_audioQueue, kMinSizePerBuffer, &self.audioQueueBuffers[i]); //创建buffer区，kMinSizePerBuffer为每一侦所需要的最小的大小，该大小应该比每次往buffer里写的最大的一次还大
+        int result =  AudioQueueAllocateBuffer(_audioQueue, kMinSizePerBuffer, &_audioQueueBuffers[i]); //创建buffer区，kMinSizePerBuffer为每一侦所需要的最小的大小，该大小应该比每次往buffer里写的最大的一次还大
         NSLog(@"AudioQueueAllocateBuffer i = %d,result = %d", i, result);
     }
 }
@@ -178,7 +180,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
 // TODO: Free Audio Buffer
 - (void)freeAudioBuffers {
     for(int i=0; i<kQueueBufferCount; i++) {
-        int result =  AudioQueueFreeBuffer(_audioQueue, self.audioQueueBuffers[i]);
+        int result =  AudioQueueFreeBuffer(_audioQueue, _audioQueueBuffers[i]);
 
         NSLog(@"AudioQueueFreeBuffer i = %d,result = %d", i, result);
     }
@@ -224,21 +226,29 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
         NSLog(@"DataSource is not SET");
     }
     
-    NSLog(@"Current Thread: %@", [NSThread currentThread]);
+//    NSLog(@"Current Thread: %@", [NSThread currentThread]);
+    
+    
+    NSLog(@"Current Route: %@", [[AVAudioSession sharedInstance] currentRoute]);
+//    NSArray *outputPorts = [[AVAudioSession sharedInstance] currentRoute].outputs;
+//    for (AVAudioSessionPortDescription *port in outputPorts) {
+//        NSLog(@"port: %@ -- type %@ -- datasources: %@", port.portName, port.portType, port.dataSources);
+//    }
+    NSLog(@"Output Data Souce %@", [[AVAudioSession sharedInstance] outputDataSource]);
     [self.synlock unlock];
 }
 
 - (void)checkUsedQueueBuffer:(AudioQueueBufferRef) qbuf {
     for (int i = 0; i < kQueueBufferCount; i++) {
-        if (qbuf == self.audioQueueBuffers[i]) {
-            NSLog(@"AudioPlayerAQInputCallback,bufferindex = %d", i);
+        if (qbuf == _audioQueueBuffers[i]) {
+//            NSLog(@"AudioPlayerAQInputCallback,bufferindex = %d", i);
             break;
         }
     }
 }
 
 void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBufferRef outQB) {
-    NSLog(@"AQInputCallback");
+//    NSLog(@"AQInputCallback");
     STAudioPCMPlayer *pcmPlayer = (__bridge STAudioPCMPlayer *)input;
     [pcmPlayer checkUsedQueueBuffer:outQB];
     [pcmPlayer readPCMAndPlay:outQ buffer:outQB];

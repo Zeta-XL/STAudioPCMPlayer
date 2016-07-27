@@ -11,7 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 #define kQueueBufferCount (6)
-#define kMinSizePerBuffer (1024*2)
+#define kMinSizePerBuffer (1024*2*2)
 #define kFillBufferSize (960*2*2)
 
 FOUNDATION_EXPORT NSString * const STAudioPCMPlayerStateDidChangeNotification;
