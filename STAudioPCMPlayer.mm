@@ -184,6 +184,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
     if (!self.bufferIsAlloc) {
         return;
     }
+    
     for(int i=0; i<kQueueBufferCount; i++) {
         int result =  AudioQueueFreeBuffer(_audioQueue, _audioQueueBuffers[i]);
 
@@ -236,13 +237,7 @@ void AudioPlayerAQInputCallback(void *input, AudioQueueRef outQ, AudioQueueBuffe
     
     NSLog(@"Current Thread: %@", [NSThread currentThread]);
 
-    
-//    NSLog(@"Current Route: %@", [[AVAudioSession sharedInstance] currentRoute]);
-//    NSArray *outputPorts = [[AVAudioSession sharedInstance] currentRoute].outputs;
-//    for (AVAudioSessionPortDescription *port in outputPorts) {
-//        NSLog(@"port: %@ -- type %@ -- datasources: %@", port.portName, port.portType, port.dataSources);
-//    }
-//    NSLog(@"Output Data Souce %@", [[AVAudioSession sharedInstance] outputDataSource]);
+
     [self.synlock unlock];
 }
 
